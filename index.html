@@ -1,24 +1,854 @@
-/* Add to your CSS section */
-.buttons-container {
-    position: relative;
-    min-height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Peachcat Valentine 💖 | Mochi Mochi Theme</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', cursive;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            touch-action: manipulation;
+            background: linear-gradient(135deg, #ffd1dc 0%, #ffe6f2 50%, #ffecf1 100%);
+            min-height: 100vh;
+            color: #ff5c8d;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* Floating mochi background */
+        .mochi-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .mochi-ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAADcCAMAAAAshD+zAAAAMFBMVEUCAAP7+Pq5q6hAJSHw4uENAwRVPTmnlZMpFhV1YFyghIHcW13YnJXTtrKcX14AAAArsw/RAAAOJklEQVR4nO2dC3fjqA6AO36AoeP0///bRRLiYUMMDtide61zdnan2SZ8lpCEEOTr65FHHnnkkUceeeSRRx555JFHHnnkkUceeeSRRx555JFHHnnkkUceeeSRRx555JFHHvn/lqZpwH9S/piQ6L/XH6SJpmGT+W8bRjQsk80HwRj+R3WNlBThMFj+a+KZArJ5tPcviCT1xNlIRqFv39nEEJhIWNiPxT1k84t3/wkxBIHdG4J/D8amPwJ/+c4bJnYvjMb8XgD7JIR30O+FP5jh3BdG4B8S//4bAe7wbyE2hrO+H5Z/vyxZ2j9v5/1n2ZCl4N+F/wI2E0P432eB6gP/bkmzdSJbCv51bN+b8P5vQQe21L9bdm0T2VLw78O/nC3jLX8rNvyb2WBW5bLdMx3+9Ww5b/lbsbEZYlaVx3bPfkf7D7BhcPgb0v2L2LI843fQ7hXbP3L/l31jdhL52LN7/v6aYb8VXabf3/z+h0LTJv/MRO7Z//6yY9sXwck5VZkYZsC/OH/6jdeRO+h7wb7u2MxHkl7qf7W2I7fZ9ifr09+P2q3bxWUx5D1oxXy34z7vUZ/VfOD5eLz3R/1g6T7bHr2GgE4Ix7UQK8gn9h7NlVbrN+I8Cg9+9/HoPnvqPlsdvQcDxEavhoO70f1X4P3paPv+WHcMeMe/4fQKe8feveYq2/7H9+rVD2j9N5mOJ4A9eF08bD0UHMzmqHd/2N0RwVHL/f5je0fzQvD9txe1//ff07c2Wr7u7P8o8L3Hgb/WP8wfR+3Yfs+BrZtt+v56P2Q9+7N7n+37w4C5f8j5g2zHs/4HgX/8nYcaf8qX8/H3nA6e/Ks+vN8+w4n6g9F+PHr0/Id8bf6TH7n7PNoJdj5jO3rxg+Bfz1/p9+vf+nzyPYPxX3+0Vg7b/sXfMLbT12+f/NR+mnxy9ge7Vuv5VH70XZ+2/Mn3t34vvvK9Hd++5U9+/sTnj1x/7gWYh+JnYtvN9v0B+MNrf/7wp5q57/w1+v3h15wP/R/bevYb/3n7e87f+/fZ9v9s6/OzfMvnbn3+tPlR//79P1TnXxH+zJ88/fb3P3bl/wCz8L2w+rm4hQAAAABJRU5ErkJggg==');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 15s infinite ease-in-out;
+            filter: drop-shadow(2px 2px 3px rgba(255, 140, 171, 0.4));
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(15px) rotate(240deg);
+            }
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        /* Peachcat Header */
+        .peachcat-header {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .peachcat-title {
+            display: inline-block;
+            background: #ff8fab;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 2.8rem;
+            text-shadow: 3px 3px 0 #ff5c8d;
+            box-shadow: 0 10px 20px rgba(255, 92, 141, 0.3);
+            border: 6px solid white;
+            margin-bottom: 30px;
+            position: relative;
+            transform: rotate(-3deg);
+        }
+        
+        .peachcat-title_after {
+            position: absolute;
+            right: -15px;
+            top: -15px;
+            font-size : 2.5rem;
+            animation: heartBeat 1.5s infinite;
+            /* background-image: url(); */
+            background-image: url(https://cdn.cdnstep.com/M1BUuXHIPpoXMinzLwlL/9-1.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 50px;
+        
+            height: 60px;
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Peachcat character from the image */
+        .peachcat-character {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: bounce 3s infinite ease-in-out;
+        }
+        
+        .peachcat-img {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://media.tenor.com/Gr8vwEb9h1cAAAAj/mochi-mochi-peach-cat-gif-mochi-cat.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 5px 15px rgba(255, 92, 141, 0.4));
+        }
 
-@media (max-width: 480px) {
-    .buttons-container {
-        min-height: 220px;
-        flex-direction: column;
-    }
+        .peachcat-img2 {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://64.media.tumblr.com/20088ab87fd6f36c9561ae6af12b71e9/tumblr_pniyioWqoK1xakhj0o1_400.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 5px 15px rgba(255, 92, 141, 0.4));
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+        
+        .mochi-character {
+            width: 120px;
+            height: 120px;
+            background: #ffc8dd;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(255, 200, 221, 0.5);
+            border: 8px solid white;
+            animation: wobble 3s infinite ease-in-out;
+            margin: -40px auto 30px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .mochi-face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+        }
+        
+        @keyframes wobble {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(10deg); }
+            66% { transform: translateY(5px) rotate(-5deg); }
+        }
+        
+        /* Valentine Box */
+        .valentine-box {
+            background: white;
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(255, 140, 171, 0.25);
+            border: 10px solid #ffafcc;
+            position: relative;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .valentine-box::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #ffafcc, #ffc8dd, #ffafcc);
+            z-index: -1;
+            border-radius: 35px;
+        }
+        
+        .question {
+            font-size: 2.5rem;
+            color: #ff5c8d;
+            margin-bottom: 40px;
+            font-weight: bold;
+            padding: 20px;
+            background: #ffecf1;
+            border-radius: 20px;
+            border: 5px dashed #ff8fab;
+            line-height: 1.4;
+            transform: rotate(1deg);
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            position: relative;
+            min-height: 180px;
+        }
+        
+        .btn {
+            padding: 22px 45px;
+            font-size: 1.9rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            user-select: none;
+            min-width: 180px;
+        }
+        
+        .btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-yes {
+            background: linear-gradient(145deg, #ff8fab, #ff5c8d);
+            color: white;
+            text-shadow: 1px 1px 0 #ff2d74;
+            border: 6px solid #ffc8dd;
+        }
+        
+        .btn-yes:hover, .btn-yes:active {
+            background: linear-gradient(145deg, #ff5c8d, #ff2d74);
+            transform: scale(1.05);
+        }
+        
+        .btn-no {
+            background: linear-gradient(145deg, #cdb4db, #a2d2ff);
+            color: white;
+            text-shadow: 1px 1px 0 #6a4c93;
+            border: 6px solid #ffc8dd;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: absolute;
+        }
+        
+        .btn-no:hover {
+            background: linear-gradient(145deg, #a2d2ff, #cdb4db);
+        }
+        
+        /* Make the "No" button move away */
+        .btn-no:hover {
+            animation: runAway 0.7s ease forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes runAway {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            100% {
+                transform: translate(calc(100vw - 200px), 0) rotate(360deg);
+            }
+        }
+        
+        /* Mobile movement */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-no {
+                position: absolute;
+                transition: transform 0.5s ease;
+            }
+            
+            .btn {
+                min-height: 70px;
+                min-width: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        /* Message */
+        .message {
+            font-size: 1.8rem;
+            color: #ff5c8d;
+            margin-top: 30px;
+            padding: 25px;
+            background: #ffecf1;
+            border-radius: 20px;
+            display: none;
+            line-height: 1.5;
+            border: 5px solid #ffafcc;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .show-message {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .instructions {
+            margin-top: 25px;
+            color: #ff8fab;
+            font-size: 1.4rem;
+            font-style: italic;
+            padding: 0 15px;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            color: #ff8fab;
+            font-size: 1.2rem;
+            padding: 0 15px;
+        }
+        
+        .footer-hearts {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            animation: colorChange 3s infinite;
+        }
+        
+        @keyframes colorChange {
+            0% { color: #ffafcc; }
+            33% { color: #ffc8dd; }
+            66% { color: #ff8fab; }
+            100% { color: #ffafcc; }
+        }
+        
+        /* Celebration elements */
+        .celebrate-mochi {
+            position: fixed;
+            font-size: 30px;
+            z-index: 100;
+            pointer-events: none;
+            animation: celebrate 4s linear forwards;
+        }
+        
+        @keyframes celebrate {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .peachcat-celebration {
+            position: fixed;
+            width: 80px;
+            height: 80px;
+            z-index: 90;
+            pointer-events: none;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAADcCAMAAAAshD+zAAAAMFBMVEUCAAP7+Pq5q6hAJSHw4uENAwRVPTmnlZMpFhV1YFyghIHcW13YnJXTtrKcX14AAAArsw/RAAAOJklEQVR4nO2dC3fjqA6AO36AoeP0///bRRLiYUMMDtide61zdnan2SZ8lpCEEOTr65FHHnnkkUceeeSRRx555JFHHnnkkUceeeSRRx555JFHHnnkkUceeeSRRx555JFHHvn/lqZpwH9S/piQ6L/XH6SJpmGT+W8bRjQsk80HwRj+R3WNlBThMFj+a+KZArJ5tPcviCT1xNlIRqFv39nEEJhIWNiPxT1k84t3/wkxBIHdG4J/D8amPwJ/+c4bJnYvjMb8XgD7JIR30O+FP5jh3BdG4B8S//4bAe7wbyE2hrO+H5Z/vyxZ2j9v5/1n2ZCl4N+F/wI2E0P432eB6gP/bkmzdSJbCv51bN+b8P5vQQe21L9bdm0T2VLw78O/nC3jLX8rNvyb2WBW5bLdMx3+9Ww5b/lbsbEZYlaVx3bPfkf7D7BhcPgb0v2L2LI843fQ7hXbP3L/l31jdhL52LN7/v6aYb8VXabf3/z+h0LTJv/MRO7Z//6yY9sXwck5VZkYZsC/OH/6jdeRO+h7wb7u2MxHkl7qf7W2I7fZ9ifr09+P2q3bxWUx5D1oxXy34z7vUZ/VfOD5eLz3R/1g6T7bHr2GgE4Ix7UQK8gn9h7NlVbrN+I8Cg9+9/HoPnvqPlsdvQcDxEavhoO70f1X4P3paPv+WHcMeMe/4fQKe8feveYq2/7H9+rVD2j9N5mOJ4A9eF08bD0UHMzmqHd/2N0RwVHL/f5je0fzQvD9txe1//ff07c2Wr7u7P8o8L3Hgb/WP8wfR+3Yfs+BrZtt+v56P2Q9+7N7n+37w4C5f8j5g2zHs/4HgX/8nYcaf8qX8/H3nA6e/Ks+vN8+w4n6g9F+PHr0/Id8bf6TH7n7PNoJdj5jO3rxg+Bfz1/p9+vf+nzyPYPxX3+0Vg7b/sXfMLbT12+f/NR+mvxy9ge7Vuv5VH70XZ+2/Mn3t34vvvK9Hd++5U9+/sTnj1x/7gWYh+JnYtvN9v0B+MNrf/7wp5q57/w1+v3h15wP/R/bevYb/3n7e87f+/fZ9v9s6/OzfMvnbn3+tPlR//79P1TnXxH+zJ88/fb3P3bl/wCz8L2w+rm4hQAAAABJRU5ErkJggg==');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: bounceAround 5s linear forwards;
+        }
+        
+        @keyframes bounceAround {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(1080deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .peachcat-title {
+                font-size: 2.2rem;
+                padding: 12px 30px;
+            }
+            
+            .question {
+                font-size: 1.9rem;
+                padding: 15px;
+            }
+            
+            .btn {
+                padding: 18px 35px;
+                font-size: 1.6rem;
+                min-width: 150px;
+            }
+            
+            .buttons-container {
+                gap: 20px;
+                min-height: 160px;
+            }
+            
+            .peachcat-character {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .mochi-character {
+                width: 100px;
+                height: 100px;
+                margin-top: -30px;
+            }
+            
+            .mochi-face {
+                font-size: 2.8rem;
+            }
+            
+            .message {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+            
+            @keyframes runAway {
+                0% {
+                    transform: translate(0, 0) rotate(0deg);
+                }
+                100% {
+                    transform: translate(calc(100vw - 180px), 0) rotate(360deg);
+                }
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .valentine-box {
+                padding: 25px 20px;
+            }
+            
+            .peachcat-title {
+                font-size: 1.8rem;
+            }
+            
+            .question {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .btn {
+                padding: 16px 30px;
+                font-size: 1.4rem;
+                min-width: 130px;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+                min-height: 220px;
+            }
+            
+            .btn-no {
+                position: absolute;
+                top: 110px;
+            }
+            
+            .peachcat-character {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .mochi-character {
+                width: 90px;
+                height: 90px;
+                margin-top: -25px;
+            }
+            
+            .mochi-face {
+                font-size: 2.5rem;
+            }
+            
+            .instructions {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Love bubble effect */
+        .love-bubble {
+            position: absolute;
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 50%;
+            animation: bubble 8s infinite ease-in-out;
+            z-index: 1;
+        }
+        
+        @keyframes bubble {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translateY(-50px) scale(1.1);
+                opacity: 0.4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background elements -->
+    <div class="mochi-bg" id="mochiBg"></div>
+    <div id="loveBubbles"></div>
     
-    .btn-no {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin-top: 20px;
-    }
-}
+    <div class="container">
+        <!-- Peachcat Header -->
+        <div class="peachcat-header">
+            <h1 class="peachcat-title">Peachcat Valentine 💖</h1>
+            <div class="peachcat-title_after"></div>
+            
+            <div class="peachcat-character">
+                <div class="peachcat-img"></div>
+            </div>
+
+            <div class="peachcat-character">
+                <div class="peachcat-img2"></div>
+            </div>
+            
+            <!-- <div class="mochi-character">
+                <div class="mochi-face">
+                    <div class="peachcat-img"></div>
+                </div>
+            </div> -->
+        </div>
+        
+        <!-- Valentine Box -->
+        <div class="valentine-box">
+            <div class="question" id="question">
+                Hey Sakina! 🍑💕<br>
+                Will you be my Valentine? 
+            </div>
+            
+            <div class="buttons-container" id="buttonsContainer">
+                <button class="btn btn-yes" id="yesBtn">YES! 🥰</button>
+                <button class="btn btn-no" id="noBtn">No 😿</button>
+            </div>
+            
+            <div class="message" id="message">
+                YAY! 🎉💖 <br>
+                Thank You Baby! 🍡💕
+            </div>
+            
+            <!-- <div class="instructions" id="instructions">
+                Try to click the "No" button... if you can catch it! 😼
+            </div> -->
+        </div>
+        
+        <!-- <footer>
+            Made with extra mochi-mochi love 💖<br>
+            <div class="footer-hearts">🍑 🍡 💖 🍑 🍡 💖</div>
+        </footer> -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const message = document.getElementById('message');
+            const instructions = document.getElementById('instructions');
+            const question = document.getElementById('question');
+            const buttonsContainer = document.getElementById('buttonsContainer');
+            const mochiBg = document.getElementById('mochiBg');
+            const loveBubbles = document.getElementById('loveBubbles');
+            
+            // Create background mochi balls
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const mochi = document.createElement('div');
+                    mochi.classList.add('mochi-ball');
+                    
+                    // Random position
+                    mochi.style.left = Math.random() * 100 + '%';
+                    mochi.style.top = Math.random() * 100 + '%';
+                    
+                    // Random animation delay and duration
+                    mochi.style.animationDelay = Math.random() * 5 + 's';
+                    mochi.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    
+                    mochiBg.appendChild(mochi);
+                }, i * 300);
+            }
+            
+            // Create love bubbles
+            for (let i = 0; i < 10; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('love-bubble');
+                
+                // Random size and position
+                const size = Math.random() * 100 + 50;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.top = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                bubble.style.animationDelay = Math.random() * 3 + 's';
+                
+                loveBubbles.appendChild(bubble);
+            }
+            
+            // Detect if device is touchscreen
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            // Set initial position for the No button
+            if (isTouchDevice) {
+                // Position the No button below the Yes button on mobile
+                const containerRect = buttonsContainer.getBoundingClientRect();
+                const yesBtnRect = yesBtn.getBoundingClientRect();
+                
+                noBtn.style.left = '50%';
+                noBtn.style.top = (yesBtnRect.height + 40) + 'px';
+                noBtn.style.transform = 'translateX(-50%)';
+                
+                instructions.textContent = "Try to tap the 'No' button... if you can catch the mochi! 🍡";
+            }
+            
+            // When the "Yes" button is clicked
+            yesBtn.addEventListener('click', function() {
+                handleYesResponse();
+            });
+            
+            // When the "No" button is clicked (if they manage to click it)
+            noBtn.addEventListener('click', function() {
+                // Just in case someone manages to click it
+                alert("Hey! Peachcat says you should press YES instead! 😸🍑");
+                moveNoButton();
+            });
+            
+            // Desktop hover effect
+            noBtn.addEventListener('mouseenter', function() {
+                if (!isTouchDevice) {
+                    moveNoButton();
+                }
+            });
+            
+            // MOBILE SUPPORT: Touch events for the No button
+            if (isTouchDevice) {
+                // Move button when touch starts
+                noBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    moveNoButton();
+                });
+                
+                // Also move button when finger moves toward it
+                buttonsContainer.addEventListener('touchmove', function(e) {
+                    const touchX = e.touches[0].clientX;
+                    const touchY = e.touches[0].clientY;
+                    
+                    // Get button position
+                    const btnRect = noBtn.getBoundingClientRect();
+                    const btnCenterX = btnRect.left + btnRect.width / 2;
+                    const btnCenterY = btnRect.top + btnRect.height / 2;
+                    
+                    // Calculate distance from touch to button
+                    const distance = Math.sqrt(
+                        Math.pow(touchX - btnCenterX, 2) + 
+                        Math.pow(touchY - btnCenterY, 2)
+                    );
+                    
+                    // If finger is getting close to the button, move it
+                    if (distance < 100) {
+                        moveNoButton();
+                    }
+                });
+            }
+            
+            // Function to move the No button to a random position
+            function moveNoButton() {
+                const containerRect = buttonsContainer.getBoundingClientRect();
+                
+                // Calculate safe boundaries for button placement
+                const maxX = containerRect.width - noBtn.offsetWidth - 20;
+                const maxY = containerRect.height - noBtn.offsetHeight - 20;
+                
+                // Generate random position within container
+                const randomX = Math.max(20, Math.random() * maxX);
+                const randomY = Math.max(20, Math.random() * maxY);
+                
+                // Apply the new position with smooth transition
+                noBtn.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                
+                // Add a cute bounce effect
+                setTimeout(() => {
+                    noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(1.1)`;
+                    setTimeout(() => {
+                        noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(1)`;
+                    }, 150);
+                }, 500);
+            }
+            
+            // Function to handle Yes response
+            function handleYesResponse() {
+                message.classList.add('show-message');
+                
+                // Change the question text
+                question.innerHTML = "YAY! You said YES! 🎉💖<br>Peachcat is so happy! 🍑";
+                question.style.animation = 'pulse 1.5s infinite';
+                
+                // Remove the buttons
+                yesBtn.style.display = 'none';
+                noBtn.style.display = 'none';
+                
+                // Update instructions
+                instructions.innerHTML = "You've made the right choice! 💖<br>Let's have a mochi-mochi Valentine's Day! 🍡";
+                instructions.style.fontSize = '1.6rem';
+                instructions.style.fontWeight = 'bold';
+                instructions.style.color = '#ff5c8d';
+                
+                // Start celebration
+                startCelebration();
+            }
+            
+            // Function to start celebration animation
+            function startCelebration() {
+                // Create floating mochi celebration
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        const mochi = document.createElement('div');
+                        mochi.innerHTML = '🍡';
+                        mochi.classList.add('celebrate-mochi');
+                        
+                        // Random position
+                        const leftPos = Math.random() * 100;
+                        mochi.style.left = leftPos + '%';
+                        
+                        // Random size
+                        const size = Math.random() * 40 + 30;
+                        mochi.style.fontSize = size + 'px';
+                        
+                        // Random animation duration
+                        const duration = Math.random() * 3 + 2;
+                        mochi.style.animationDuration = duration + 's';
+                        
+                        document.body.appendChild(mochi);
+                        
+                        // Remove mochi after animation completes
+                        setTimeout(() => {
+                            if (mochi.parentNode) {
+                                mochi.parentNode.removeChild(mochi);
+                            }
+                        }, duration * 1000);
+                    }, i * 150);
+                }
+                
+                // Create floating peachcats
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const peachcat = document.createElement('div');
+                        peachcat.classList.add('peachcat-celebration');
+                        
+                        // Random position
+                        const leftPos = Math.random() * 100;
+                        peachcat.style.left = leftPos + '%';
+                        
+                        // Random size
+                        const size = Math.random() * 60 + 40;
+                        peachcat.style.width = size + 'px';
+                        peachcat.style.height = size + 'px';
+                        
+                        // Random animation duration
+                        const duration = Math.random() * 4 + 3;
+                        peachcat.style.animationDuration = duration + 's';
+                        
+                        document.body.appendChild(peachcat);
+                        
+                        // Remove peachcat after animation completes
+                        setTimeout(() => {
+                            if (peachcat.parentNode) {
+                                peachcat.parentNode.removeChild(peachcat);
+                            }
+                        }, duration * 1000);
+                    }, i * 200);
+                }
+                
+                // Add more love bubbles
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const bubble = document.createElement('div');
+                        bubble.classList.add('love-bubble');
+                        
+                        // Random size and position
+                        const size = Math.random() * 80 + 40;
+                        bubble.style.width = size + 'px';
+                        bubble.style.height = size + 'px';
+                        bubble.style.left = Math.random() * 100 + '%';
+                        bubble.style.bottom = '-50px';
+                        
+                        // Random animation
+                        bubble.style.animation = `bubble ${Math.random() * 5 + 3}s ease-in-out forwards`;
+                        
+                        loveBubbles.appendChild(bubble);
+                        
+                        // Remove bubble after animation
+                        setTimeout(() => {
+                            if (bubble.parentNode) {
+                                bubble.parentNode.removeChild(bubble);
+                            }
+                        }, 8000);
+                    }, i * 300);
+                }
+            }
+            
+            // Prevent context menu on buttons
+            noBtn.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Make Peachcat bounce when clicked
+            document.querySelector('.peachcat-character').addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'bounce 3s infinite ease-in-out';
+                }, 10);
+            });
+            
+            // Make Mochi wobble when clicked
+            document.querySelector('.peachcat-img2').addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'wobble 3s infinite ease-in-out';
+                }, 10);
+            });
+        });
+    </script>
+</body>
+</html>
