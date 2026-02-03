@@ -93,16 +93,16 @@
         }
         
         .peachcat-title_after {
-            position: absolute;
-            right: -15px;
-            top: -15px;
-            font-size : 2.5rem;
-            animation: heartBeat 1.5s infinite;
-            background-image: url(https://cdn.cdnstep.com/M1BUuXHIPpoXMinzLwlL/9-1.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 50px;
-            height: 60px;
+                position: absolute;
+                right: -26px;
+                top: 24px;
+                font-size: 2.5rem;
+                /* animation: heartBeat 1.5s infinite; */
+                background-image: url(https://cdn.cdnstep.com/M1BUuXHIPpoXMinzLwlL/9-1.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 150px;
+                height: 200px;
         }
         
         @keyframes heartBeat {
@@ -120,14 +120,16 @@
         }
         
         .peachcat-img {
-            width: 100%;
-            height: 100%;
-            background-image: url('https://media.tenor.com/Gr8vwEb9h1cAAAAj/mochi-mochi-peach-cat-gif-mochi-cat.gif');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            filter: drop-shadow(0 5px 15px rgba(255, 92, 141, 0.4));
+               width: 100%;
+                height: 100%;
+                background-image: url('https://media.tenor.com/Gr8vwEb9h1cAAAAj/mochi-mochi-peach-cat-gif-mochi-cat.gif');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                filter: drop-shadow(0 5px 15px rgba(255, 92, 141, 0.4));
+                top: -15px;
         }
+        
 
         .celebrationImage {
             width: 100%;
@@ -476,8 +478,10 @@
             }
             
             .peachcat-character {
-                width: 140px;
-                height: 140px;
+                    width: 171px;
+                    height: 200px;
+                    top: -19px;
+                    left: -35px;
             }
             
             .mochi-character {
@@ -496,16 +500,16 @@
     <div class="container">
         <!-- Peachcat Header -->
         <div class="peachcat-header">
-            <h1 class="peachcat-title">Be My Valentine 💖</h1>
+            <h1 class="peachcat-title">Be my Valentine 💖</h1>
             <div class="peachcat-title_after"></div>
             
             <div class="peachcat-character">
                 <div class="peachcat-img"></div>
             </div>
 
-            <div class="peachcat-character">
+            <!-- <div class="peachcat-character">
                 <div class="peachcat-img2"></div>
-            </div>
+            </div> -->
         </div>
         
         <!-- Valentine Box -->
@@ -802,7 +806,7 @@
                 const gifImg = document.createElement('img');
 
                 const gifUrls = [
-                'https://media1.tenor.com/m/OVNAfDbpEbAAAAAC/mochi-mochi-peach-cat.gif'
+                'https://64.media.tumblr.com/20088ab87fd6f36c9561ae6af12b71e9/tumblr_pniyioWqoK1xakhj0o1_400.gif'
             ];
             
             // Select random GIF or use specific one
